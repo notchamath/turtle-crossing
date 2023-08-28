@@ -11,7 +11,10 @@ class Player(Turtle):
         self.shape("turtle")
         self.penup()
         self.setheading(90)
-        self.sety(-280)
+        self.player_reset()
 
     def move(self):
         self.goto(0, self.ycor() + MOVE_DISTANCE)
+
+    def player_reset(self):
+        self.sety(-280)

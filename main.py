@@ -9,6 +9,10 @@ from scoreboard import Scoreboard
 screen = Screen()
 screen.setup(width=600, height=600)
 screen.tracer(0)
+screen.title("Turtle Crossing")
+
+# Scoreboard
+score = Scoreboard()
 
 # Player obj
 player = Player()
@@ -26,8 +30,18 @@ screen.onkey(player.move, "Up")
 
 game_is_on = True
 while game_is_on:
-    time.sleep(0.1)
+    time.sleep(score.game_speed)
     screen.update()
 
     for car in cars:
         car.drive()
+
+        if car.distance(player) < 25:
+            game_is_on = False
+            score.game_over()
+
+    if player.ycor() > 300:
+        player.player_reset()
+        score.level_up()
+
+screen.exitonclick()

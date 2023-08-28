@@ -2,7 +2,6 @@ from turtle import Turtle
 import random
 
 COLORS = ["red", "orange", "yellow", "green", "blue", "purple"]
-STARTING_MOVE_DISTANCE = 5
 MOVE_INCREMENT = 10
 
 
@@ -25,6 +24,6 @@ class CarManager(Turtle):
             self.goto_start()
 
     def goto_start(self):
-        self.y = random.randint(-280, 280)
+        self.y = random.randint(-260, 280)
         self.x = 300 + random.randrange(0, 600, 10)
         self.setpos(self.x, self.y)
