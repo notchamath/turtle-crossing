@@ -40,7 +40,7 @@ while game_is_on:
             game_is_on = False
             score.game_over()
 
-    if player.ycor() > 300:
+    if player.ycor() > 280:
         player.player_reset()
         score.level_up()
 
