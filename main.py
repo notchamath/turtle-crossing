@@ -34,13 +34,16 @@ while game_is_on:
     screen.update()
 
     for car in cars:
+        # Move car
         car.drive()
 
+        # If car collision with turtle, game over
         if car.distance(player) < 25:
             game_is_on = False
             score.game_over()
 
-    if player.ycor() > 280:
+    # If Turtle reaches finish line, increase level
+    if player.ycor() > score.finish_line:
         player.player_reset()
         score.level_up()
 
